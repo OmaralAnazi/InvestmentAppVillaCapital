@@ -30,7 +30,7 @@ function ExploreFilter({ investments, onFilter }) {
     const filtered = investments.filter((investment) => {
       const matchesSearchTerm = investment.name.toLowerCase().includes(searchTerm.toLowerCase());
       const matchesRiskLevel = riskLevel ? investment.riskLevel === parseInt(riskLevel) : true;
-      const matchesMinInvestment = minInvestment ? investment.minimumInvestmentAmount >= parseFloat(minInvestment) : true;
+      const matchesMinInvestment = minInvestment ? investment.minimumInvestmentAmount <= parseFloat(minInvestment) : true;
       const matchesMinReturn = minReturn ? investment.potentialReturns.min >= parseFloat(minReturn) : true;
       const matchesMaxReturn = maxReturn ? investment.potentialReturns.max <= parseFloat(maxReturn) : true;
       return matchesSearchTerm && matchesRiskLevel && matchesMinInvestment && matchesMinReturn && matchesMaxReturn;
